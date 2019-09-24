@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function func1() {
+				var password = "123456";
+				console.log(password.length);
+			}
+			function func2(){
+				var ssn = "123456-1234567";
+				var sex = ssn.charAt(7);
+				if(sex == "1" || sex == "3"){ //javascript는 모두 ==로 비교, .equals 같은거 안씀
+					console.log("남자");
+				}else{
+					console.log("여자");
+				}
+			}
+			function func3(){
+				var ssn = "123456-1234567";
+				var year = ssn.substr(0,2);
+				var month = ssn.substring(2,4);
+				var date = ssn.substr(4,2);
+				console.log(year + "." + month + "." + date);
+			}
+			function func4(){
+				var now = new Date();
+				var year = now.getFullYear();
+				var month = now.getMonth() + 1;
+				var date = now.getDate();
+				console.log(year + "." + month + "." + date);
+			}
+			function func5(radius){
+				var result = radius*radius*Math.PI;
+				console.log(result);
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">String length</button><br/>
+		<button onclick="func2()">String charAt</button><br/>
+		<button onclick="func3()">String subStr, subString</button><br/>
+		<button onclick="func4()">Date</button><br/>
+		<button onclick="func5(5)">Radius</button><br/>
+	</body>
+</html>

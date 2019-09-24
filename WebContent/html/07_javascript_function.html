@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+		//함수선언
+			function func1(){
+				console.log("func1() 호출");
+			}
+			var func2 = function() {
+				console.log("func2() 호출");
+			};
+			
+			//함수호출
+			func1();
+			func2();
+			
+			//javascript에서는 함수도 하나의 변수이기 때문에 대입이 가능하다
+			var func3 = func1;
+			
+			//호출
+			func3();
+			
+			//함수선언
+			function func4(x, y){
+				var result = x+y;
+				console.log(result);
+			}
+			//함수호출
+			func4(3,5);
+			
+			//함수선언
+			function func5(x, y){
+				var result = x+y;
+				return result;
+			}
+			//함수호출
+			var rst = func5(5,7);
+			console.log(rst);
+			
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

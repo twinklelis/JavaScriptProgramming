@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			var car = null;
+			function func1(){
+				car = {
+					//property선언 (java에서 field에 해당)
+					model : "그랜저",
+					company : "현대자동차",
+					color : "흰색",
+					speed : 0,
+					start : function() { //메소드 이름, 메소드 내용
+						console.log("시동을 겁니다.");
+					},
+					setSpeed : function(speed) {
+						this.speed = speed; //this 무조건 붙여야됨
+					},
+					info : function() {
+						console.log(this.model + " : " + this.color);
+					},
+					stop : function() {
+						this.setSpeed(0);
+						console.log("멈춥니다");
+					}
+				};
+				
+				console.log(car.model);
+				car.speed = 60; //car가 가지고 있는 speed의 값을 60으로 변경
+				console.log(car.speed);
+				
+				car.info();
+				car.start();
+				car.setSpeed(100);
+				car.stop();
+			}
+			
+			function func2() {
+				if(car == null) return;
+				var json = JSON.stringify(car);
+				console.log(json);
+			}
+			
+			function func3() {
+				var json = '{"model":"그랜저","company":"현대자동차","color":"흰색","speed":"0"}'
+				//↑↑무조건 "model" 처럼 큰 따옴표를 써야함! '' 작은 따옴표는 에러발생
+				var car = JSON.parse(json);
+				console.log(car);
+				console.log(car.model);
+				console.log(car.company);
+			}
+			function func4() {
+					var member = {
+						name : "홍길동",
+						age : 20,
+						car : {model:"포르쉐",color:"빨강"}, //member라는 객체의 car라는 property의 타입은 객체!(가능함)
+						hobby : ["영화감상", "게임", "코딩", "여행"] //배열
+					}; 
+					var json = JSON.stringify(member);
+					console.log(json);
+					
+					var member2 = JSON.parse(json);
+					console.log(member2.name);
+					console.log(member2.car.model); //포르쉐
+					console.log(member2.hobby[1]);
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">객체 생성 및 사용</button></br>
+		<button onclick="func2()">객체를 문자열로 변환</button></br>
+		<button onclick="func3()">문자열을 객체로 변환</button></br>
+		<button onclick="func4()">여러 타입을 속성으로 가지는 객체</button></br>
+	</body>
+</html>

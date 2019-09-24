@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			//전역변수들↓↓
+			var var1 = 10;
+			var2 = 20;
+			
+			//함수 선언
+			//함수와 메소드는 다르다
+			//자바 스크립트는 함수도 있고 메소드도 있다
+			function func1() { //java 메소드와는 다르게 리턴 타입이 없다
+				//로컬 변수 선언
+				var var3 = 30;
+			
+				//var4 는 전역변수 이다
+				//함수 안에서 var없이 선언한 변수는 전역변수
+				var4 = 40;
+				
+				console.log("var1 : " + var1);
+				console.log("var2 : " + var2);
+				console.log("var3 : " + var3);
+				console.log("var4 : " + var4);
+			};
+			
+			function func2() {
+				console.log("var1 : " + var1);
+				console.log("var2 : " + var2);
+				
+				//func1 밖에서 func1의 로컬변수를 사용할 수 없다
+				console.log("var3 : " + var3);
+				//전역 변수는 사용 가능
+				console.log("var4 : " + var4);
+			}
+			
+			//함수 호출(실행)
+			func1();
+			func2();
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

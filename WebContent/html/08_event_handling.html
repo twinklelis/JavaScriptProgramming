@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function func1(){
+				console.log("Hello JavaScript!!");
+			}
+			function func2(){
+				var x = 10;
+				var y = 20;
+				var result = x+y;
+				console.log("result : " + result);
+			}
+			function func3(){
+				return true;
+			}
+			function func4() {
+				console.log("마우스 그림위에");
+			}
+			function func5(){
+				console.log("마우스 그림밖에");
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">func1() 호출</button><br/>
+		<button onclick="func2()">func2() 호출</button><br/>
+		<a href="javascript:func1()">
+			<img src="../common/image/btn.jpg" alt="func1() 호출버튼"/>
+		</a></br>
+		<a href="http://www.apache.org" onclick="return func3()">apache</a><br/>
+		<form action = "http://www.apache.org" onsubmit="return func3()
+		">
+			<input type="submit" value="이동"/>
+		</form><br/>
+		<img src="../common/image/Desert.jpg" width="300" onmouseenter="func4()" onmouseleave="func5()"/>
+	</body>
+</html>
