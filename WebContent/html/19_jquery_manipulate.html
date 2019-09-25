@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../common/js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript">
+			function func1() {
+				$("#div1").html("<img src='../common/image/Chrysanthemum.jpg' width='200'/>");
+				//$("#div1").append("<img src='../common/image/Chrysanthemum.jpg' width='200'/>");
+				//div안쪽에 html로 ""내용을 넣겠다
+				//.append() : 뒤의 내용에 계속 추가하는 것 //이미지가 계속 들어감
+				//.html() : 원래 있던 내용을 싹 치워서 새로운 내용으로 바꾸는것//이미지가 한번 들어가고 이후에 변화없음
+				
+			}
+			
+			function func2() {
+				$("#div2").width("200px");
+				$("#div2").height("200px");
+				$("#div2").css("background-color","pink");
+				//.css(propertyName, value)
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">내용 채우기</button>
+		<button onclick="func2()">스타일 추가하기</button>
+		<hr/>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+</html>

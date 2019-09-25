@@ -3,39 +3,34 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<script type="text/javascript" src="../common/js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript">
-			function func1() {
-				var img1 = document.querySelector("#img1"); //못찾으면 null값을 리턴한다
-				img1.src = "../common/image/Penguins.jpg"; //element+태그속성 //속성src의 값을 바꿔버림
+			function func1(){
+				var img1 = $("#img1");
+				img1.attr("src","../common/image/Tulips.jpg");
 			}
 			
-			function func2() {
-				var imgList = document.querySelectorAll(".img2"); //클래스네임으로 찾을 땐 여러개가 찾아질 수 있으므로 배열로..
-				for(var i = 0; i < imgList.length; i++){
-					imgList[i].src = "../common/image/Tulips.jpg";
-				}
+			function func2(){
+				var img2 = $(".img2");
+				img2.attr("src","../common/image/Penguins.jpg");
 			}
 			
-			function func3() {
-				var imgList = document.querySelectorAll("img"); //태그네임으로 찾을 땐 여러개가 찾아질 수 있으므로 배열로..
-				for(var i = 0; i < imgList.length; i++){
-					imgList[i].src = "../common/image/Koala.jpg";
-				}
+			function func3(){
+				var img3 = $("img");
+				img3.attr("src","../common/image/Koala.jpg");
 			}
 			
-			function func4() {
-				var imgList = document.querySelectorAll("#div1 img"); //태그네임으로 찾을 땐 여러개가 찾아질 수 있으므로 배열로..
-				for(var i = 0; i < imgList.length; i++){
-					imgList[i].src = "../common/image/Jellyfish.jpg";
-				}
+			function func4(){
+				var img4 = $("#div1 img");
+				img4.attr("src","../common/image/Lighthouse.jpg");
 			}
 			
 			function func5() {
-				var midInput = document.querySelector("#joinForm input[name=mid]");
-				console.log(midInput.value);
+				var midInput = $("#joinForm input[name=mid]");
+				console.log(midInput.val());
 				
-				var inputPass = document.querySelector("#joinForm input[name=mpassword]");
-				var password = inputPass.value;
+				var inputPass = $("#joinForm input[name=mpassword]");
+				var password = inputPass.val();
 				if(password == ""){
 					window.alert("패스워드 빠짐");
 				}else{
@@ -45,19 +40,12 @@
 					console.log(password);
 				}
 				
-				var inputHobby = document.querySelectorAll("#joinForm input[name=mhobby]");
-				var inputHobbyChecked = document.querySelectorAll("#joinForm input[name=mhobby]:checked");
+				var inputHobby = $("#joinForm input[name=mhobby]");
+				var inputHobbyChecked = $("#joinForm input[name=mhobby]:checked");
 				for(var i = 0; i <inputHobbyChecked.length; i++){
 					console.log(inputHobbyChecked[i].value);
+					//inputHobbyChecked[i] : jquery객체가 아니라 jquery객체 속 배열의 DOM객체 이므로 val()이 아니라 value를 써야함
 				}
-			}
-			
-			function func6() {
-				var form = document.joinForm;
-				var mid = document.joinForm.mid.value;
-				console.log("mid : " + mid);
-				var mpassword = document.joinForm.mpassword.value;
-				console.log("mpassword : " + mpassword);
 			}
 		</script>
 	</head>
