@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function func1() {
+				var img1 = document.querySelector("#img1"); //못찾으면 null값을 리턴한다
+				img1.src = "../common/image/Penguins.jpg"; //element+태그속성 //속성src의 값을 바꿔버림
+			}
+			
+			function func2() {
+				var imgList = document.querySelectorAll(".img2"); //클래스네임으로 찾을 땐 여러개가 찾아질 수 있으므로 배열로..
+				for(var i = 0; i < imgList.length; i++){
+					imgList[i].src = "../common/image/Tulips.jpg";
+				}
+			}
+			
+			function func3() {
+				var imgList = document.querySelectorAll("img"); //태그네임으로 찾을 땐 여러개가 찾아질 수 있으므로 배열로..
+				for(var i = 0; i < imgList.length; i++){
+					imgList[i].src = "../common/image/Koala.jpg";
+				}
+			}
+			
+			function func4() {
+				var imgList = document.querySelectorAll("#div1 img"); //태그네임으로 찾을 땐 여러개가 찾아질 수 있으므로 배열로..
+				for(var i = 0; i < imgList.length; i++){
+					imgList[i].src = "../common/image/Jellyfish.jpg";
+				}
+			}
+			
+			function func5() {
+				var midInput = document.querySelector("#joinForm input[name=mid]");
+				console.log(midInput.value);
+				
+				var inputPass = document.querySelector("#joinForm input[name=mpassword]");
+				var password = inputPass.value;
+				if(password == ""){
+					window.alert("패스워드 빠짐");
+				}else{
+					if(password.length < 8){
+						window.alert("패스워드 길이는 8자리여야 합니다.");
+					}
+				}
+				
+				var inputHobby = document.querySelectorAll("#joinForm input[name=mhobby]");
+				var inputHobbyChecked = document.querySelectorAll("#joinForm input[name=mhobby]:checked");
+				for(var i = 0; i <inputHobbyChecked.length; i++){
+					console.log(inputHobbyChecked[i].value);
+				}
+			}
+			
+			function func6() {
+				var form = document.joinForm;
+				var mid = document.joinForm.mid.value;
+				console.log("mid : " + mid);
+				
+				var mpassword = document.joinForm.mpassword.value;
+				console.log("mpassword : " + mpassword);
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">아이디로 찾기</button><br/>
+		<button onclick="func2()">클래스 이름으로 찾기</button><br/>
+		<button onclick="func3()">태그명으로 찾기</button><br/>
+		<button onclick="func4()">부모 속 자식 찾기</button><br/>
+		<button onclick="func5()">form 양식으로 찾기</button><br/>
+		<button onclick="func6()">form 양식으로 찾기2</button><br/>
+		<hr/>
+		<img id = "img1" src="../common/image/Desert.jpg" width="200"/>
+		<br/>
+		<img class = "img2" src="../common/image/Desert.jpg" width="200"/>
+		<img class = "img2" src="../common/image/Desert.jpg" width="200"/>
+		<br/>
+		<div id = "div1">
+			<img src="../common/image/Desert.jpg" width="200"/>
+			<img src="../common/image/Desert.jpg" width="200"/>
+		</div>
+		<br/>
+		<form id="joinForm">
+			아이디 : <input name = "mid" type="text"/><br/>
+			비밀번호 : <input name = "mpassword" type="password"/><br/>
+			취미 : <input name = "mhobby" type="checkbox" value="game"/>게임 <!-- value값을 미리 지정을 해주어야 한다 -->
+				 <input name = "mhobby" type="checkbox" value="movie"/>영화
+				 <input name = "mhobby" type="checkbox" value="readBook"/>독서</br>
+		</form>
+	</body>
+</html>

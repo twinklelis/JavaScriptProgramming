@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function func1() {
+				var div1 = document.querySelector("#div1");
+				console.log(div1);
+				div1.innerHTML = "<img src='../common/image/Chrysanthemum.jpg' width='200'/>"; //div안쪽에 html로 ""내용을 넣겠다
+			}
+			
+			function func2() {
+				var div2 = document.querySelector("#div2");
+				console.log(div2);
+				div2.style.width = "200px";
+				div2.style.height = "200px";
+				div2.style.backgroundColor = "pink";
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">내용 채우기</button>
+		<button onclick="func2()">스타일 추가하기</button>
+		<hr/>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+</html>

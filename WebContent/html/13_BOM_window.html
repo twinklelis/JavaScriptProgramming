@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function func1() {
+				var w = window.innerWidth;
+				var h = window.innerHeight;
+				console.log("width : " + w);
+				console.log("height : " + h);
+			}
+			
+			function func2() {
+				window.alert("알림 메시지");
+			}
+			
+			function func3() {
+				var result = confirm("알림 메시지"); //버튼이 2개임 (확인,취소) 사용자의 동의를 구하는 등의 일을 수행함 / 리턴타입 : boolean (확인:true 취소:false)
+				if(result){
+					console.log("확인을 누르셨습니다 / true");
+				}else{
+					console.log("취소를 누르셨습니다 / false");
+				}
+			}
+			
+			function func4() {
+				var input = window.prompt("수량을 입력하세요.", "0"); //창의 메시지, 입력칸의 기본값
+				//확인을 누르면 입력칸의 값이 들어가고, 취소를 누르면 null값이 들어간다
+				if(input!=null) {
+					var amount = parseInt(input);
+					console.log("입력된 수량 : " + amount);
+				} else{
+					console.log("취소를 하셨습니다.");
+				}
+			}
+			
+			function func5() {
+				  window.open("11_array.html", "", "width=200,height=100"); //새로운 탭에 열린다
+				  //window.open(URL, name, specs, replace)
+				  //name : 나중에 자바스크립트에서 윈도우 제어 할 때 이용
+				  //specs : 많은 기능이 있지만 그 중 하나는 열리는 창의 크기를 조절 할 수 있음
+				  //uRL만 줄때는 상관 없지만, 뒤에 있는 부분들은 앞 부분이 모두 채워져 있어야 한다.
+				  //즉 name 은 주고싶지 않지만 specs 는 주고싶을 때 name 부분에 "" 를 입력해주어야 한다.
+				}
+			
+			function func6() {
+				timerId = window.setInterval(function() {
+					console.log("Hello JavaScript!!");
+				},1000); //1초 주기로 콘솔을 찍는 함수를 실행시킴
+			}
+			function func7() {
+				window.clearInterval(timerId);
+				console.log("실행을 취소합니다");
+			}
+			
+			function func8() {
+				timerId2 = setTimeout(function(){
+					window.console.log("twinkle twinkle litte star★")
+				}, 5000); //5초뒤에 콘솔을 찍는 함수를 실행시킴
+			}
+			function func9() {
+				window.clearTimeout(timerId2);
+				console.log("실행을 취소합니다");
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick = "func1()">ViewPort Size</button> <br/>
+		<button onclick = "func2()">버튼이 1개인 알림창 출력</button> <br/>
+		<button onclick = "func3()">버튼이 2개인 알림창 출력</button> <br/>
+		<button onclick = "func4()">입력메세지</button> <br/>
+		<button onclick = "func5()">dialog창 띄우기</button> <br/>
+		<button onclick = "func6()">주기적 실행 시작</button>
+		<button onclick = "func7()">주기적 실행 취소</button> <br/>
+		<button onclick = "func8()">미래 실행 시간 설정</button>
+		<button onclick = "func9()">미래 실행 시간 취소</button> <br/>
+	</body>
+</html>
