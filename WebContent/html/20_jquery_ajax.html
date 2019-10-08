@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="../common/js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript">
+			function func1(){
+				$.ajax({ //중괄호의 의미 : 객체
+					url : "20_ajax_content1.html",
+					success: function(content) {
+						$("#div1").html(content);
+					}
+				});
+			}
+			
+			var timerId = null;
+			var no = 1;
+			
+			function func2(){
+				timerId = window.setInterval(function() {
+					$.ajax({
+						url : "20_ajax_content" + no + ".html",
+						success : function(content){ //성공적으로 받아왔다면 받아온 값이 매개값이 되어서 function을 실행
+							$("#div1").html(content);
+						}
+					});
+					no++;
+					if(no == 4){
+						no = 1;
+					}
+				}, 2000);
+			}
+			
+			function func3(){
+				if(timerId!=null){
+					window.clearInterval(timerId);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button onclick="func1()">부분 갱신</button>
+		<button onclick="func2()">자동 부분 갱신 시작</button>
+		<button onclick="func3()">자동 부분 갱신 취소</button>
+		<hr/>
+		<div style = "display : flex; height : 400px;">
+			<div style = "flex-grow : 1; height : 100%; border : 1px solid black;">
+				<h4>[고정 내용]</h4>
+				<img src = "../common/image/menu.png"/>
+			</div>
+			<div id = "div1" style = "flex-grow : 5; height : 100%; border : 1px solid black;">
+			</div>
+		</div>
+	</body>
+</html>
